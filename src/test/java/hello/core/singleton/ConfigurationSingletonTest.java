@@ -15,17 +15,17 @@ public class ConfigurationSingletonTest {
     public void configurationTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
-        OrderServiceImpl orderService = ac.getBean("orderService", OrderServiceImpl.class);
+//        OrderServiceImpl orderService = ac.getBean("orderService", OrderServiceImpl.class);
 
         MemberRepository repository0 = ac.getBean("memberRepository", MemberRepository.class);
         MemberRepository repository1 = memberService.getMemberRepository();
-        MemberRepository repository2 = orderService.getMemberRepository();
+//        MemberRepository repository2 = orderService.getMemberRepository();
 
         System.out.println("repository0 -> " + repository0);
         System.out.println("repository1 -> " + repository1);
-        System.out.println("repository2 -> " + repository2);
+//        System.out.println("repository2 -> " + repository2);
 
-        assertThat(repository0).isSameAs(repository1).isSameAs(repository2);
+//        assertThat(repository0).isSameAs(repository1).isSameAs(repository2);
     }
 
     @Test

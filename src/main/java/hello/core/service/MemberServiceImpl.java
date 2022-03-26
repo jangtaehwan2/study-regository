@@ -2,18 +2,17 @@ package hello.core.service;
 
 import hello.core.domain.member.Member;
 import hello.core.domain.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
+//@Service
 @Component
 public class MemberServiceImpl implements MemberService{
 
-    private MemberRepository memberRepository;
-
-    @Autowired
-    public MemberServiceImpl(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
+    private final MemberRepository memberRepository;
 
     @Override
     public void join(Member member) {
